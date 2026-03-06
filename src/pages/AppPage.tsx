@@ -104,6 +104,13 @@ const AppPage = () => {
             </div>
           )}
 
+          {state === "questions" && (
+            <FollowUpQuestions
+              idea={submittedIdea}
+              onComplete={handleQuestionsComplete}
+            />
+          )}
+
           {state === "loading" && <TeddyBearLoader />}
 
           {state === "results" && <CampaignResults idea={submittedIdea} />}
