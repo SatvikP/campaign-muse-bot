@@ -1,9 +1,6 @@
 const HeroSection = () => {
   return (
     <section className="pt-20 pb-12 px-6 text-center max-w-4xl mx-auto">
-      <p className="text-sm font-medium tracking-widest uppercase text-muted-foreground mb-4">
-        For Running Shoe Brand Managers
-      </p>
       <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-semibold leading-tight text-foreground mb-6">
         Build with a team of{" "}
         <span className="italic">smart marketers</span>
