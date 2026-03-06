@@ -17,7 +17,7 @@ const Landing = () => {
       <PostItCanvas />
       <SignUpSection />
       <footer className="text-center py-8 text-sm text-muted-foreground">
-        Built for running shoe brand managers
+        Built for brand managers
       </footer>
     </div>);
 
