@@ -3,19 +3,26 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import TeddyBearLoader from "@/components/app/TeddyBearLoader";
 import CampaignResults from "@/components/app/CampaignResults";
+import FollowUpQuestions from "@/components/app/FollowUpQuestions";
 import { useNavigate } from "react-router-dom";
 
-type AppState = "onboarding" | "loading" | "results";
+type AppState = "onboarding" | "questions" | "loading" | "results";
 
 const AppPage = () => {
   const [state, setState] = useState<AppState>("onboarding");
   const [idea, setIdea] = useState("");
   const [submittedIdea, setSubmittedIdea] = useState("");
+  const [campaignAnswers, setCampaignAnswers] = useState<Record<string, string>>({});
   const navigate = useNavigate();
 
   const handleSubmit = () => {
     if (!idea.trim()) return;
     setSubmittedIdea(idea.trim());
+    setState("questions");
+  };
+
+  const handleQuestionsComplete = (answers: Record<string, string>) => {
+    setCampaignAnswers(answers);
     setState("loading");
     // Simulate agent processing
     setTimeout(() => setState("results"), 4500);
@@ -24,6 +31,7 @@ const AppPage = () => {
   const handleReset = () => {
     setIdea("");
     setSubmittedIdea("");
+    setCampaignAnswers({});
     setState("onboarding");
   };
 
